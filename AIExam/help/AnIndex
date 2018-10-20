@@ -1,0 +1,13 @@
+createExam	createExam
+hello	hello
+makeQuestionAlphaBeta	makeQuestionAlphaBeta
+makeQuestionAStar	makeQuestionAStar
+makeQuestionCNN	makeQuestionCNN
+makeQuestionFFNN	makeQuestionFFNN
+makeQuestionHMM_FB	makeQuestionHMM_FB
+makeQuestionHMM_Vit	makeQuestionHMM_Vit
+makeQuestionMCMC	makeQuestionMCMC
+makeQuestionMultiArmedBandit	makeQuestionMultiArmedBandit
+makeQuestionSchedule	makeQuestionSchedule
+makeTextQuestions	makeTextQuestions
+makeTextQuestions2	makeTextQuestions2

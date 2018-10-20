@@ -1,0 +1,12 @@
+library(AIExam)
+
+AIExam::makeQuestionAStar()
+AIExam::makeQuestionAlphaBeta()
+AIExam::makeQuestionCNN()
+AIExam::makeQuestionFFNN()
+AIExam::makeQuestionHMM_FB()
+AIExam::makeQuestionHMM_Vit()
+AIExam::makeQuestionMCMC()
+AIExam::makeQuestionMultiArmedBandit()
+AIExam::makeQuestionSchedule()
+AIExam::makeTextQuestions()
