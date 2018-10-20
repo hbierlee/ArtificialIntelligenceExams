@@ -32,5 +32,5 @@ digraph {
 	8 [label="Action 7"];
 	8 -> 9;
 
-	9 [label="Finish"]
+	9 [label="Finish"];
 }
