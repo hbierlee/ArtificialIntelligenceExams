@@ -77,13 +77,12 @@ i for each F[1, i]
 More visually: in the blanks fill in the column of `F` and (observed) column of `E`.
 ```
           F[,t-1]             F[,t-1]                E[O[t]]
-F[t] = [( ______  * T[1,1]  +  ______ *   T[1,2] ) * _______,  # first column of T
-        ( ______  * T[2,1]  +  ______ *   T[2,2] ) * _______]  # second column of T
+F[t] = [( ______  * T[1,1]  +  ______ *   T[2,1] ) * _______,  # values from the first column of T
+        ( ______  * T[1,2]  +  ______ *   T[2,2] ) * _______]  # values from the second column of T
 ```
 
 
 ## Backward probabilities
-
 0. Initialize `B[2]=[1,1]`
 1. Start with empty `B[t]`. We are going to fill in the blanks by using `T`, `E`, last `O` and previously calculated `B`:
 	```
