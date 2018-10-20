@@ -2,6 +2,7 @@ HMM Forward-Backward
 ====================
 
 # Example
+```
 > makeQuestionHMM_FB(seed=1)
 [1] "Transition Matrix:"
                state(t+1)=False state(t+1)=True
@@ -29,6 +30,7 @@ emission(1) emission(2)
 [1] 0.5124555 0.4875445
 [1] 0.2366548 0.7633452
 [1] 0.7046263 0.2953737
+```
 
 
 # Theory
@@ -53,7 +55,6 @@ emission(1) emission(2)
 We are given `S`, `T`, `E` and `O[1,2]`. First we calculate the F-values `F[1,2]`, then B-values `B[1,2]` and then we combine them into our final estimated state probabilities.
 
 ## Forward probabilities
-```
 i for each F[1, i]
 
 
