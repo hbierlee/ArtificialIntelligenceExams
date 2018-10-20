@@ -58,9 +58,9 @@ We are given `S`, `T`, `E` and `O[1,2]`. First we calculate the F-values `F[1,2]
 i for each F[1, i]
 
 
-- `F[1,1] = 
+- ```F[1,1] = 
 	(S[0,1] * T[1,1] + S[0,2] * T[2,1]) # regular markov chain transition S * T
-	* E[1,O[1]]`						# take into account the probability of seeing observation O[1] according to the emission matrix
+	* E[1,O[1]]						# take into account the probability of seeing observation O[1] according to the emission matrix ```
 	- In other words, take the dot-product of F[0] with T[1,], and multiply it with the probability of seeing O at time 1 (`=E[1,O[1]]`)
 	- In general: `F[1,t] = S[t-1]*
 - `F[1,2] = (S[0,1] * T[1,2] + S[0,2] * T[2,2]) * E[2,O[1]]
