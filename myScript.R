@@ -1,5 +1,5 @@
 library(AIExam)
-
+# command click the function names in RStudio to jump to the code!
 AIExam::makeQuestionAStar()
 AIExam::makeQuestionAlphaBeta()
 AIExam::makeQuestionCNN()
