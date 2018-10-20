@@ -65,6 +65,7 @@ Goal      0 0 0 0 0 0    0
 			            ^
 			0 0 0 0 0 2 0
 		```
+	- Faster alternative: Determine `hMin`. Start at the Goal node, write down 0 (so `h(Goal)=0`. Follow all the arrows in the *opposite direction* to find the nodes from which Goal can be accessed (`inverse_neigbors`). Calculate `h(inverse_neigbors) = h(Goal) + hMin`. Repeat until you figured out `h` for all the nodes in the graph.
 3. Now we're going to start the 1st iteration of the algorithm. Construct the Next and the Frontier sets, which will contain node objects of the format: `node_id (path_cost(node) - heuristic(node) - path(node))`.
 	- `Next = Start = 1 (0 - 6 - 1)`
 	- `Frontier = {unvisited_neighbors(Start)} [=> Frontier = {2 (2 - 6 - 1,2), 5 (6 - 4 - 1,4)}]`
