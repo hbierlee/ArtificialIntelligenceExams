@@ -1,7 +1,5 @@
 HMM Forward-Backward
 ====================
-
-wip
 - theory part is not that great
 - the solve section should be good though!
 
@@ -72,13 +70,35 @@ We are given `S`, `T`, `E` and `O[1,2]`. First we calculate the F-values `F[1,2]
 	- Get `F = S[t-1] * T`
 	- Multiply each row in `F` with corresponding `O` value
 
-More visually: in the blanks fill in the column of `F` and (observed) column of `E`.
-```
-          F[,t-1]             F[,t-1]                E[O[t]]
-F[t] = [( ______  * T[1,1]  +  ______ *   T[2,1] ) * _______,  # values from the first column of T
-        ( ______  * T[1,2]  +  ______ *   T[2,2] ) * _______]  # values from the second column of T
-```
+### Pen-and-paper approach:
+0. `F[0] = S[0]`
+1. Start with empty `F[t]`. We are going to fill in the blanks using `T`, `E` and current `O`.
+	```        F     T     F     T      E
+	F[t] = [ (___ * ___ + ___ * ___) * ___ ,
+	         (___ * ___ + ___ * ___) * ___ ]
+	```
+2. Start with the previous `F[t-1]` values, 'quarter-flip' them and copy them element-wise over for each row:
+	```
+	F[t] = [ (F[1, t-1] * ___ + F[2, t-1] * ___) * ___ ,
+	         (F[1, t-1] * ___ + F[2, t-1] * ___) * ___ ]
+	```
+3. Quarter-flip the whole `T` matrix and it should overlay with the blanks:
+	```
+	F[t] = [ (F[1, t-1] * T[1,1] + F[2, t-1] * T[2,1]) * ___ ,
+	         (F[1, t-1] * T[1,2] + F[2, t-1] * T[2,2]) * ___ ]
+	```
+4. Get the correct column in `E`, which is `E[,O[t]]`, and copy over to the last remaining blanks:
+	```
+	F[t] = [ (F[1, t-1] * T[1,1] + F[2, t-1] * T[2,1]) * E[1,O[t]] ,
+	         (F[1, t-1] * T[1,2] + F[2, t-1] * T[2,2]) * E[2,O[t]] ]
+	```
 
+In one overview:
+```
+           F[1,t-1]            F[2,t-1]              E[,O[t]]
+F[t] = [ ( ________ * T[1,1] + ________ * T[2,1] ) * _______ ,  # values from the first column of T
+         ( ________ * T[1,2] + ________ * T[2,2] ) * _______ ]  # values from the second column of T
+```
 
 ## Backward probabilities
 0. Initialize `B[2]=[1,1]`
