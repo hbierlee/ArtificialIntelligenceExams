@@ -1,8 +1,9 @@
 HMM Forward-Backward
 ====================
 
-WIP!!
-- the solve F- and B-values solves are already usable though
+wip
+- theory part is not that great
+- the solve section should be good though!
 
 # Example
 ```
@@ -58,9 +59,6 @@ emission(1) emission(2)
 We are given `S`, `T`, `E` and `O[1,2]`. First we calculate the F-values `F[1,2]`, then B-values `B[1,2]` and then we combine them into our final estimated state probabilities.
 
 ## Forward probabilities
-i for each F[1, i]
-
-
 - ```F[1,1] = 
 	(S[0,1] * T[1,1] + S[0,2] * T[2,1]) # regular markov chain transition S * T
 	* E[1,O[1]]						# take into account the probability of seeing observation O[1] according to the emission matrix ```
