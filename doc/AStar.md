@@ -1,6 +1,8 @@
 AStar
 =====
 
+About done :)
+
 # Example
 ```
 "Edges:"

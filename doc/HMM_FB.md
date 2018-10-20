@@ -1,6 +1,8 @@
 HMM Forward-Backward
 ====================
 
+VERY WIP!!
+
 # Example
 ```
 > makeQuestionHMM_FB(seed=1)
@@ -62,16 +64,14 @@ i for each F[1, i]
 	(S[0,1] * T[1,1] + S[0,2] * T[2,1]) # regular markov chain transition S * T
 	* E[1,O[1]]						# take into account the probability of seeing observation O[1] according to the emission matrix ```
 	- In other words, take the dot-product of F[0] with T[1,], and multiply it with the probability of seeing O at time 1 (`=E[1,O[1]]`)
-	- In general: `F[1,t] = S[t-1]*
-- `F[1,2] = (S[0,1] * T[1,2] + S[0,2] * T[2,2]) * E[2,O[1]]
-- `F[2,1] = (S[1,1] * T[1,2] + S[1,2] * T[2,2]) * E[1,O[1]]
-- `F[2,2] = (S[1,2] * T[2,2] + S[1,2] * T[2,2]) * E[2,O[1]]
+- `F[1,2] = (S[0,1] * T[1,2] + S[0,2] * T[2,2]) * E[2,O[1]]`
+- `F[2,1] = (S[1,1] * T[1,2] + S[1,2] * T[2,2]) * E[1,O[1]]`
+- `F[2,2] = (S[1,2] * T[2,2] + S[1,2] * T[2,2]) * E[2,O[1]]`
 - etc..
 - In general
 	- Get `O = E[,0[t]]` (the observed column of `E`)
 	- Get `F = S[t-1] * T`
 	- Multiply each row in `F` with corresponding `O` value
-
 ## Backward probabilities
 ...
 
