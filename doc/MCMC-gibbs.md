@@ -7,7 +7,7 @@ See the PDF for arrows and shit that better shows what's going on.
 
 Note that the observed values eliminate some of the probabilities in the table given. In this case, A is always true and E is always false and the columns and rows with the probabilities corresponding to those cases can be scratched.
 
-![Removed rows](MCMC-gibbs-1.png)
+![Removed rows](MCMC-gibbs-1.PNG)
 
 The only probabilities that chage on each iteration is those who depend on the changed state. So if B changes, only B and D change If E changes, only E changes. If C changes, C, D and E change.
 
