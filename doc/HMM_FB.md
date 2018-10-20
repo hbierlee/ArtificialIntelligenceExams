@@ -1,7 +1,8 @@
 HMM Forward-Backward
 ====================
 
-VERY WIP!!
+WIP!!
+- the solve F- and B-values solves are already usable though
 
 # Example
 ```
@@ -72,8 +73,35 @@ i for each F[1, i]
 	- Get `O = E[,0[t]]` (the observed column of `E`)
 	- Get `F = S[t-1] * T`
 	- Multiply each row in `F` with corresponding `O` value
+
+More visually: in the blanks fill in the column of `F` and (observed) column of `E`.
+```
+          F[,t-1]             F[,t-1]                E[O[t]]
+F[t] = [( ______  * T[1,1]  +  ______ *   T[1,2] ) * _______,  # first column of T
+        ( ______  * T[2,1]  +  ______ *   T[2,2] ) * _______]  # second column of T
+```
+
+
 ## Backward probabilities
-...
 
-
-
+0. Initialize `B[2]=[1,1]`
+1. Start with empty `B[t]`. We are going to fill in the blanks by using `T`, `E`, last `O` and previously calculated `B`:
+	```
+	B[t] = [ ___ * ___ * ___ + ___ * ___ * ___ ] ,
+	         ___ * ___ * ___ + ___ * ___ * ___ ] ]
+	```
+2. Copy over the `T` values, which line up exactly with the `T` matrix!
+	```
+	B[t] = [ T[1,1] * ___ * ___ + T[1,2] * ___ * ___ ] ,
+	         T[2,1] * ___ * ___ + T[2,2] * ___ * ___ ] ]
+	```
+3. Get the last obtained B-values, `B[t+1]`. 'Quarter-flip' this vector and now they line up with the blanks for each row (and over the columns they are the same):
+	```
+	B[t] = [ T[1,1] * B[t+1,1] * ___ + T[1,2] * B[t+1,2] * ___ ] ,
+	         T[2,1] * B[t+1,1] * ___ + T[2,2] * B[t+1,2] * ___ ] ]
+	```
+4. Get the correct column of `E` values, depending on `O[t+1]`. Again, quarter-flip this column so that in `B`, the columns are same, rows are different for these values:
+	```
+	B[t] = [ T[1,1] * B[t+1,1] * E[O[1,O[t+1]]] + T[1,2] * B[t+1,2] * E[O[2,O[t+1]]] ] ,
+	         T[2,1] * B[t+1,1] * E[O[1,O[t+1]]] + T[2,2] * B[t+1,2] * E[O[2,O[t+1]]] ] ]
+	```
