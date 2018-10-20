@@ -6,6 +6,7 @@ Solution MCMC Gibbs sampling seed=1
 Observed Values -> These values are fixed, but not their probabilities if they have dependencies
 
 Sample 0:
+
 A | B | C | D | E
 --|---|---|---|---
 1 | 1 | 0 | 1 | 0
@@ -28,6 +29,7 @@ A | B\|A | C\|A | D\|B,C | E\|C | P_old | P_new | ratio | rand | Accepted?
 0.75 | 0.6 | 0.8 | 0.95 | 0.2 | .0036 | .0684 | > 1 | | Yes
 
 Sample 1:
+
 A | B | C | D | E
 --|---|---|---|---
 1 | 0 | 1 | 0 | 0
