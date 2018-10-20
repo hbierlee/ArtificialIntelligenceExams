@@ -1,0 +1,117 @@
+digraph mcmc {
+	forcelabels = true;
+	graph [pad="1", nodesep="2", ranksep="2"];
+	"P(A)"[xlabel = <
+	<TABLE>
+		<TR>
+			<TD>A=0</TD>
+			<TD>A=1</TD>
+		</TR>
+		<TR>
+			<TD>0.25</TD>
+			<TD>0.75</TD>
+		</TR>
+	</TABLE>
+	>];
+	"P(A)" -> "P(B|A)";
+	"P(A)" -> "P(C|A)";
+
+	"P(B|A)" [xlabel = <
+	<TABLE>
+		<TR>
+			<TD>A</TD>
+			<TD>B=0</TD>
+			<TD>B=1</TD>
+		</TR>
+		<TR>
+			<TD>A=0</TD>
+			<TD>0.35</TD>
+			<TD>0.65</TD>
+		</TR>
+		<TR>
+			<TD>A=1</TD>
+			<TD>0.6</TD>
+			<TD>0.4</TD>
+		</TR>
+	</TABLE>
+	>];
+
+	"P(B|A)" -> "P(D|B,C)";
+
+	"P(C|A)" [xlabel = <
+	<TABLE>
+		<TR>
+			<TD>A</TD>
+			<TD>C=0</TD>
+			<TD>C=1</TD>
+		</TR>
+		<TR>
+			<TD>A=0</TD>
+			<TD>0.9</TD>
+			<TD>0.1</TD>
+		</TR>
+		<TR>
+			<TD>A=1</TD>
+			<TD>0.2</TD>
+			<TD>0.8</TD>
+		</TR>
+	</TABLE>
+	>];
+	"P(C|A)" -> "P(D|B,C)";
+	"P(C|A)" -> "P(E|C)";
+
+	"P(D|B,C)" [xlabel = <
+	<TABLE>
+		<TR>
+			<TD>B</TD>
+			<TD>C</TD>
+			<TD>D=0</TD>
+			<TD>D=1</TD>
+		</TR>
+		<TR>
+			<TD>B=0</TD>
+			<TD>C=0</TD>
+			<TD>0.9</TD>
+			<TD>0.1</TD>
+		</TR>
+		<TR>
+			<TD>B=0</TD>
+			<TD>C=1</TD>
+			<TD>0.95</TD>
+			<TD>0.05</TD>
+		</TR>
+		<TR>
+			<TD>B=1</TD>
+			<TD>C=0</TD>
+			<TD>0.65</TD>
+			<TD>0.35</TD>
+		</TR>
+		<TR>
+			<TD>B=1</TD>
+			<TD>C=1</TD>
+			<TD>0.65</TD>
+			<TD>0.35</TD>
+		</TR>
+	</TABLE>
+	>];
+
+	"P(E|C)" [xlabel = <
+	<TABLE>
+		<TR>
+			<TD>C</TD>
+			<TD>E=0</TD>
+			<TD>E=1</TD>
+		</TR>
+		<TR>
+			<TD>C=0</TD>
+			<TD>0.1</TD>
+			<TD>0.9</TD>
+		</TR>
+		<TR>
+			<TD>C=1</TD>
+			<TD>0.2</TD>
+			<TD>0.8</TD>
+		</TR>
+	</TABLE>
+	>];
+}
