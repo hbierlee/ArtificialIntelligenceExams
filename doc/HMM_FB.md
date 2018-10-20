@@ -104,3 +104,9 @@ F[t] = [( ______  * T[1,1]  +  ______ *   T[2,1] ) * _______,  # values from the
 	B[t] = [ T[1,1] * B[t+1,1] * E[O[1,O[t+1]]] + T[1,2] * B[t+1,2] * E[O[2,O[t+1]]] ] ,
 	         T[2,1] * B[t+1,1] * E[O[1,O[t+1]]] + T[2,2] * B[t+1,2] * E[O[2,O[t+1]]] ] ]
 	```
+
+
+## Combine to get smooth P-values
+- Use element-wise multiplication on `F` and `B` (make sure `B` is the right way around, ending with a row of 1's!) to obtain `P*`
+	- element-wise multiplication creates an matrix of the same dimensions as `F`/`B`, with each element being `P*[i,j] = F[i,j] * B[i,j]`
+- Normalize `P*` over each row to obtain `P`
