@@ -1,4 +1,4 @@
-Scheduling
+Scheduling | 
 
 Basic steps:
 
@@ -16,3 +16,35 @@ Make a table to determine how to schedule the tasks according to constraints.
 3. Then make sure the required durable/reusable resources (saw/hammer) are available.
 4. Make sure there is the required consumable resource (But I think the problem is defined such that this is never a constraint)
 5. Add the task to the table and block the resources required during the duration of the task. If the task consumes a resource, put it in the slot before (representing consuming the resource at the start turn of the tast). If the the task produces a resource, add it in the last slot (the resource is produced at completion of the task)
+
+Read the table and write down:
+
+Start times:
+
+task | turn
+-----|-----
+Start | 0
+Action 1 | 0
+Action 2 | 0
+Action 3 | 0
+Action 4 | 95
+Action 5 | 45
+Action 6 | 50
+Action 7 | 115
+Finish | 145
+
+Nail consumption:
+
+turn | +-
+-----|---
+Turn 35 | +1
+Turn 45 | +1
+Turn 45 | -1
+Turn 145 | -1
+
+Saw use:
+Turn 0..45
+Turn 50..145
+
+Hammer use:
+Turn 45..145
