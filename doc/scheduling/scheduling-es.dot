@@ -27,11 +27,11 @@ digraph {
 	6 [label="Action 5", xlabel="ES=45"];
 	6 -> 9 [color="grey"];
 	
-	7 [label="Action 6", xlabel="ES=70"];
+	7 [label="Action 6", xlabel="ES=50"];
 	7 -> 8 [color="grey"];
 	
-	8 [label="Action 7", xlabel="ES=70+45=115"];
+	8 [label="Action 7", xlabel="ES=50+45=95"];
 	8 -> 9 [color="grey"];
 
-	9 [label="Finish", xlabel="ES=115+30=145"];
+	9 [label="Finish", xlabel="ES=95+30=125"];
 }

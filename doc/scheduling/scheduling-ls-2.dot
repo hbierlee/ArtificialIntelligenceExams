@@ -1,0 +1,37 @@
+digraph {
+	graph [nodesep=1, ranksep=1];
+	rankdir="LR";
+	1 [label="Start", xlabel="ES=0, LS=0-0=0"];
+	1 -> 2 [color="grey"];
+	1 -> 3 [color="grey"];
+	1 -> 4 [color="grey"];
+	
+	2 [label="Action 1", xlabel="ES=0, LS=50-50=0"];
+	2 -> 5 [color="grey"];
+	2 -> 7 [color="grey"];
+
+	3 [label="Action 2", xlabel="ES=0, LS=75-45=30"];
+	3 -> 5 [color="grey"];
+	3 -> 6 [color="grey"];
+	3 -> 8 [color="grey"];
+
+	4 [label="Action 3", xlabel="ES=0, LS=50-35=15"];
+	4 -> 5 [color="grey"];
+	4 -> 6 [color="grey"];
+	4 -> 7 [color="grey"];
+	4 -> 8 [color="grey"];
+
+	5 [label="Action 4", xlabel="ES=50, LS=95-20=75"];
+	5 -> 8 [color="grey"];
+	
+	6 [label="Action 5", xlabel="ES=45, LS=125-5=120"];
+	6 -> 9 [color="grey"];
+	
+	7 [label="Action 6", xlabel="ES=50, LS=95-45=50"];
+	7 -> 8 [color="grey"];
+	
+	8 [label="Action 7", xlabel="ES=95, LS=125-30=95"];
+	8 -> 9 [color="grey"];
+
+	9 [label="Finish", xlabel="ES=125, LS=125"];
+}
